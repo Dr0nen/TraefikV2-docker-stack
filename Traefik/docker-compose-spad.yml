@@ -6,7 +6,7 @@ services:
     container_name: traefik
     restart: always
     networks:
-      - Ares
+      - skyhawk
     ports:
       - 8001:80
       - 4433:443
@@ -23,7 +23,7 @@ services:
     labels:
       - traefik.enable=true
       - traefik.http.routers.traefik-https.entrypoints=https
-      - traefik.http.routers.traefik-https.rule=Host(`myproxyui.domain.com`)
+      - traefik.http.routers.traefik-https.rule=Host(`treafik.domain.com`)
       - traefik.http.middlewares.traefik-auth.basicauth.users=${TRAEFIKADMIN}
       - traefik.http.routers.traefik-https.middlewares=traefik-auth
       - traefik.http.routers.traefik-https.service=api@internal
@@ -32,11 +32,9 @@ services:
       - traefik.http.routers.traefik-https.tls.domains[0].main=domain.com
       - traefik.http.routers.traefik-https.tls.domains[0].sans=*.domain.com
       - "traefik.http.middlewares.strip.stripprefix.prefixes=/"
-      - traefik.http.middlewares.authelia.forwardauth.address=http://authelia:9091/api/verify?rd=https://login.domain.com/
-      - traefik.http.middlewares.authelia.forwardauth.trustforwardheader=true
-      - traefik.http.middlewares.authelia.forwardauth.authresponseheaders=Remote-User, Remote-Groups
+    
     read_only: true
 
 networks:
-  Ares:
+  skyhawk:
     external: true
