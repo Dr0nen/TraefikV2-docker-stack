@@ -1,0 +1,36 @@
+{
+  "http": {
+    "Account": {
+      "Email": "email@email.com",
+      "Registration": {
+        "body": {
+          "status": "valid",
+          "contact": [
+            "mailto:email@email.com"
+          ]
+        },
+        "uri": "https://acme-v02.api.letsencrypt.org/acme/acct/88503428"
+      },
+      "PrivateKey": "MIIJKAIBAAKCAgEAuq8ual4+IFtKfobWozO06+PUshGQVtaFQm64YLcnFe$
+      "KeyType": "4096"
+    },
+    "Certificates": [
+      {
+        "domain": {
+          "main": "traefik.domain.com"
+        },
+        "certificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUdXVENDQlVHZ0F$
+        "key": "LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlKS0FJQkFBS0NBZ0V$
+        "Store": "default"
+      },
+      {
+        "domain": {
+          "main": "portainer.domain.com"
+        },
+        "certificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUdYakNDQlVhZ0F$
+        "key": "LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlKS2dJQkFBS0NBZ0V$
+        "Store": "default"
+      }
+    ]
+  }
+}
