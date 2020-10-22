@@ -1,0 +1,58 @@
+api:
+ dashboard: true
+ 
+ 
+entryPoints:
+  http:
+    address: ":80"
+    forwardedHeaders:
+      trustedIPs:
+        - 127.0.0.1/32
+        - 192.168.0.0/16
+        - 172.16.0.0/12
+        - 10.0.0.0/8
+  https:
+    address: ":443"
+    forwardedHeaders:
+      trustedIPs:
+        - 127.0.0.1/32
+        - 192.168.0.0/16
+        - 172.16.0.0/12
+        - 10.0.0.0/8
+providers:
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    exposedByDefault: false
+    defaultRule: "Host(`{{ index .Labels \"com.docker.compose.service\"}}.domain.com`)"
+    network: Ares
+  file:
+    directory: "/configs"
+    watch: true
+    
+certificatesResolvers:
+  http:
+    acme:
+      email: 
+      storage: acme.json
+      httpChallenge:
+        entryPoint: http
+  dns:
+    acme:
+      email: 
+      storage: acme.json
+      dnsChallenge:
+        provider: cloudflare
+        resolvers:
+          - "1.1.1.1:53"
+          - "1.0.0.1:53"
+serversTransport:
+    insecureSkipVerify: true
+accessLog:
+  filePath: "/logs/access.log"
+  fields:
+    headers:
+      names:
+        User-Agent: keep
+
+log:
+  level: DEBUG
