@@ -24,11 +24,12 @@ providers:
     endpoint: "unix:///var/run/docker.sock"
     exposedByDefault: false
     defaultRule: "Host(`{{ index .Labels \"com.docker.compose.service\"}}.domain.com`)"
-    network: Ares
-  file:
-    directory: "/configs"
-    watch: true
-    
+    network: Skyhawk
+
+#  file:
+#    directory: "/configs"
+#    watch: true
+#    
 certificatesResolvers:
   http:
     acme:
