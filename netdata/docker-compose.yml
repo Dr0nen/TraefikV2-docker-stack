@@ -25,6 +25,9 @@ services:
       - SYS_PTRACE
     security_opt:
       - apparmor:unconfined
+      
+    networks:
+      - proxy
 
     volumes:
 #      - /etc/passwd:/host/etc/passwd:ro
@@ -41,6 +44,6 @@ services:
      - "traefik.http.routers.netdata.tls: true"
      - "traefik.docker.network=proxy"
 
- networks:
+networks:
   proxy:
      external: true
