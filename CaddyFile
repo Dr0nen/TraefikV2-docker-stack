@@ -1,0 +1,6 @@
+# locate this file at /OPT/Caddyfile
+
+netdata.domain.com {
+  proxy / netdata:19999
+  tls email@domain.com
+}
