@@ -14,12 +14,12 @@ http:
         stsIncludeSubdomains: true
         stsPreload: true
 
-    default-whitelist:
-      ipWhiteList:
-        sourceRange:
+#    default-whitelist:
+#      ipWhiteList:
+#        sourceRange:
 
 secured:
       chain:
         middlewares:
-        - default-whitelist
+ #       - default-whitelist
         - default-headers
