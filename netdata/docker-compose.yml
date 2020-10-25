@@ -23,7 +23,7 @@ services:
     image: netdata/netdata
     restart: unless-stopped
     hostname: netdata.rippr.net
-   network_mode: bridge
+#   network_mode: bridge
     cap_add:
       - SYS_PTRACE
     security_opt:
