@@ -1,1 +1,1 @@
-# Traefik2.2 docker stack
+# Traefik V2 docker stack
