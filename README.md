@@ -6,8 +6,7 @@ see guide at https://medium.com/@containeroo/traefik-2-2-docker-global-entrypoin
 
 File structure:
 
-[code]
-
+```
 /opt/containers/
 +-- traefik
 |   +-- docker-compose.yml  // 
@@ -22,4 +21,4 @@ File structure:
 +-- wordpress
 |   +-- docker-compose.yml  // 
 
-/[code]
+```
